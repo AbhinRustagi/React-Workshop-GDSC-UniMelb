@@ -23,15 +23,18 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.notes-grid,
+.console {
+  max-width: 63rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .notes-grid {
   display: flex;
   gap: 1rem;
-  padding: 1rem;
   width: 100%;
-  min-height: 40vh;
-  max-width: 65rem;
-  margin-left: auto;
-  margin-right: auto;
+  flex-wrap: wrap;
 }
 
 .note {
@@ -39,10 +42,12 @@ body {
   padding: 1rem;
   background-color: var(--note-bg);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  max-width: 15rem;
-  width: 100%;
   transition: 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
-  height: max-content;
+}
+
+.notes-grid .note {
+  max-width: 20rem;
+  width: 100%;
 }
 
 .note:hover {
@@ -74,7 +79,7 @@ body {
   font-size: 1.5rem;
 }
 
-button.delete-btn {
+button {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   border: 1px solid var(--accent);
@@ -82,9 +87,50 @@ button.delete-btn {
   font-weight: bold;
   background: transparent;
   transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
+  text-transform: uppercase;
+  float: right;
+  color: var(--accent);
 }
 
-button.delete-btn:hover {
+button:hover {
   color: var(--note-bg);
   background: var(--accent);
+}
+
+.console {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.note.form {
+  min-width: 15rem;
+  max-width: 20rem;
+  min-height: 15rem;
+}
+
+.form-title,
+.form-body {
+  border: none;
+  width: 100%;
+  background: transparent;
+  font-family: inherit;
+}
+
+.form-title:focus,
+.form-body:focus {
+  outline: none;
+}
+
+.form-body {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+@media screen and (max-width: 63rem) {
+  .console,
+  .notes-grid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
